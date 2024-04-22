@@ -4,10 +4,11 @@ RUN apt update -y && apt install munge -y && apt install vim -y && apt install b
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt install slurm-client -y
-RUN apt install sudo -y && apt install python3.9 python3-pip -y && \
-	useradd -m admin -s /usr/bin/bash -d /home/admin && echo "admin:admin" | chpasswd && adduser admin sudo && echo "admin     ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+RUN apt install sudo -y
+RUN apt install python3.9 python3-pip -y
+RUN useradd -m admin -s /usr/bin/bash -d /home/admin && echo "admin:admin" | chpasswd && adduser admin sudo && echo "admin     ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-RUN apt update -y && apt install npm nodejs -y && npm install -g configurable-http-proxy && pip3 install jupyterlab==4.1.6 && pip3 install jupyterlab_slurm
+RUN apt update -y && apt install npm nodejs -y && npm install -g configurable-http-proxy && pip3 install jupyterlab==2.1.2 && pip3 install jupyterlab_slurm
 
 RUN python3 -m pip install jupyterlab-slurm
 
@@ -17,7 +18,7 @@ COPY docker-entrypoint.sh /etc/slurm-llnl/
 
 WORKDIR /home/admin
 
-EXPOSE 8888
+EXPOSE 8888/tcp
 
 ENV USER admin
 ENV SHELL bash
