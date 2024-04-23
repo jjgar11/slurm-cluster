@@ -23,8 +23,6 @@ services:
         user: admin
         volumes:
                 - shared-vol:/home/admin
-        environment:
-                - SLURM_NODENAME=slurmnode1
         links:
                 - slurmmaster
   slurmnode2:
@@ -33,8 +31,6 @@ services:
         user: admin
         volumes:
                 - shared-vol:/home/admin
-        environment:
-                - SLURM_NODENAME=slurmnode2
         links:
                 - slurmmaster
   slurmnode3:
@@ -43,8 +39,6 @@ services:
         user: admin
         volumes:
                 - shared-vol:/home/admin
-        environment:
-                - SLURM_NODENAME=slurmnode3
         links:
                 - slurmmaster
 volumes:
