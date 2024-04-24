@@ -1,6 +1,7 @@
 services:
   slurmjupyter:
-        image: rancavil-jupyter:original
+        image: rancavil-jupyter:test
+        # image: rancavil-jupyter:original
         hostname: slurmjupyter
         user: admin
         volumes:
@@ -8,7 +9,8 @@ services:
         ports:
                 - 8888:8888
   slurmmaster:
-        image: rancavil-master:original
+        image: rancavil-master:test
+        # image: rancavil-master:original
         hostname: slurmmaster
         user: admin
         volumes:
@@ -18,7 +20,8 @@ services:
                 - 6818:6818
                 - 6819:6819
   slurmnode1:
-        image: rancavil-node:original
+        image: rancavil-node:test
+        # image: rancavil-node:original
         hostname: slurmnode1
         user: admin
         volumes:
@@ -26,7 +29,8 @@ services:
         links:
                 - slurmmaster
   slurmnode2:
-        image: rancavil-node:original
+        image: rancavil-node:test
+        # image: rancavil-node:original
         hostname: slurmnode2
         user: admin
         volumes:
@@ -34,7 +38,8 @@ services:
         links:
                 - slurmmaster
   slurmnode3:
-        image: rancavil-node:original
+        image: rancavil-node:test
+        # image: rancavil-node:original
         hostname: slurmnode3
         user: admin
         volumes:

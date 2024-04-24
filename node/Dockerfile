@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt update -y && \
-	apt install munge vim build-essential git mariadb-server wget sudo libopenmpi-dev -y
+	apt install munge vim build-essential git mariadb-server wget curl sudo libopenmpi-dev -y
 
 RUN apt install slurmd slurm-client -y
 RUN apt install python3.9 python3-pip -y
